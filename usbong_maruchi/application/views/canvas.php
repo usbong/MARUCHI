@@ -466,39 +466,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </tr>
 	</table>
 	<br/>
-	<!-- Form -->
-	<form id="browse-form" method="post" action="<?php echo site_url('canvas/confirm')?>">
-		<?php
-			$itemCounter = 1;
-		?>
-<!--		<input type="hidden" name="reportTypeIdParam" value="1" required>
-		<input type="hidden" name="reportTypeNameParam" value="Incident Report" required>
--->
+	<?php	
+//		echo "PLAYER1 INPUT: ".$data['inputParam']."<br/>";
+		echo "PLAYER1 INPUT: ".$sInputAsButtonText0."<br/>";
+		//edited by Mike, 20220415
+//		echo "PLAYER2 INPUT: CHARGE<br/>";	
+		echo "PLAYER2 INPUT: ".$sInputAsButtonText1."<br/>";
 
-		<div>
-			<table width="100%">
-<!--
-			  <tr>
-				<td>
-				  <b><span>Pangalan</span></b>
-				</td>
-			  </tr>
--->
-			  <tr>
-				<td>				
-				  <input type="text" class="browse-input" placeholder="" name="inputParam" required>
-				</td>
-			  </tr>
-			</table>
-		</div>
-		<br />
-		<!-- Buttons -->
-		<button type="submit" class="Button-login">
-			Enter
-		</button>
-	</form>
-	<br />
-	<br />
+		switch($iHitPlayerId) {
+			case 1: //PLAYER1
+				echo "HITS PLAYER 1!";
+				break;
+			case 2: //PLAYER2
+				echo "HITS PLAYER 2!";
+				break;
+			case -1: //NO HIT
+				echo "NO PLAYER HIT!";
+				break;
+		}
+	?>
+	<br/>
 
 <!--	<div id="myText" onclick="copyText(1)">Text you want to copy</div>
 -->	
