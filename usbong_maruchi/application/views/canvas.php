@@ -15,6 +15,9 @@
 ' Note: re-used computer instructions from Usbong Knowledge Management System (KMS)
 -->
 <?php
+
+//TO-DO: -use: image icons
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -73,8 +76,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							text-align: center;
 							background-color: #00ff00; <!--#93d151; lime green-->
 							border: 1pt solid #00ff00;
-						}						
+						}					
 
+						div.tableHeaderAddNewPatient
+						{
+							font-weight: bold;
+							text-align: center;
+							background-color: #ff8000; <!--#93d151; lime green-->
+							border: 1pt solid #ff8000;
+						}						
+						
 						input.browse-input
 						{
 							width: 100%;
@@ -100,6 +111,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							float: left;
 							text-align: center;
 						}						
+						
+						table.addPatientTable
+						{
+							border: 2px dotted #ab9c7d;		
+							margin-top: 10px;
+						}						
+						
 						
 						table.search-result
 						{
@@ -131,7 +149,140 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							width: 50%;
 							display: inline-block;
 							text-align: right;
-						}						
+						}
+
+						.Button-attackPunch {
+							padding: 12px;
+							background-color: #ffe400;
+							color: #222222;
+							font-size: 16px;
+							font-weight: bold;
+
+							border: 0px solid;		
+							border-radius: 4px;
+
+							float: left;
+							margin-left: 4px;
+						}
+
+						.Button-attackPunch:hover {
+							background-color: #d4be00;
+						}
+
+						.Button-attackPunch:focus {
+							background-color: #d4be00;
+						}
+						
+						.Button-attackThrow {
+							padding: 12px;
+							background-color: #ffe400;
+							color: #222222;
+							font-size: 16px;
+							font-weight: bold;
+
+							border: 0px solid;		
+							border-radius: 4px;
+
+							float: left;
+							margin-left: 4px;
+						}
+
+						.Button-attackThrow:hover {
+							background-color: #d4be00;
+						}
+
+						.Button-attackThrow:focus {
+							background-color: #d4be00;
+						}
+									
+						.Button-attackSpecial {
+							padding: 12px;
+							background-color: #ffa100;
+							color: #222222;
+							font-size: 16px;
+							font-weight: bold;
+
+							border: 0px solid;		
+							border-radius: 4px;
+
+							float: left;
+							margin-left: 4px;
+						}
+
+						.Button-attackSpecial:hover {
+							background-color: #ff7000;
+						}
+
+						.Button-attackSpecial:focus {
+							background-color: #ff7000;
+						}
+
+						.Button-defendGuard {
+							padding: 12px;
+							background-color: #a1a1a1;
+							color: #222222;
+							font-size: 16px;
+							font-weight: bold;
+
+							border: 0px solid;		
+							border-radius: 4px;
+
+							float: left;
+							margin-left: 4px;
+						}
+
+						.Button-defendGuard:hover {
+							background-color: #827c7c;
+						}
+
+						.Button-defendGuard:focus {
+							background-color: #827c7c;
+						}
+
+						.Button-defendReflect {
+							padding: 12px;
+							background-color: #53cf20;
+							color: #222222;
+							font-size: 16px;
+							font-weight: bold;
+
+							border: 0px solid;		
+							border-radius: 4px;
+
+							float: left;
+							margin-left: 4px;
+						}
+
+						.Button-defendReflect:hover {
+							background-color: #409c1a;
+						}
+
+						.Button-defendReflect:focus {
+							background-color: #409c1a;
+						}
+
+						.Button-charge {
+							padding: 12px;
+							background-color: #ffe400;
+							color: #222222;
+							font-size: 16px;
+							font-weight: bold;
+
+							border: 0px solid;		
+							border-radius: 4px;
+
+							float: left;
+							margin-left: 4px;
+						}
+
+						.Button-charge:hover {
+							background-color: #d4be00;
+						}
+
+						.Button-charge:focus {
+							background-color: #d4be00;
+						}
+						
 
 <!-- Reference: https://stackoverflow.com/questions/7291873/disable-color-change-of-anchor-tag-when-visited; 
 	last accessed: 20200321
@@ -455,6 +606,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}			
 		}
 	?>
+	
+	<table class="addPatientTable">
+	<tr>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-attackPunch" id="attackPunchButtonId">PUNCH</button>			
+		</td>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-attackThrow" id="attackThrowButtonId">THROW</button>			
+		</td>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-attackSpecial" id="attackSpecialButtonId">SPECIAL</button>			
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-defendGuard" id="defendGuardButtonId">GUARD</button>			
+		</td>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-defendReflect" id="defendReflectButtonId">REFLECT</button>			
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-charge" id="chargeButtonId">CHARGE</button>			
+		</td>
+		<td>
+		</td>
+	</tr>
+	</table>
+	
 	<br />
 	<br />
 	<br />
