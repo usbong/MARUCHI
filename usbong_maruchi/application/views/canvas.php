@@ -429,6 +429,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //			alert("text: "+sHoldTextPatientName + sHoldTextFee);//el.value);
 
 		}
+
+
+		//added by Mike, 20220415				
+		function myPopupFunction(iButtonId) {	
+/* //removed by Mike, 20210902
+			//added by Mike, 20210424
+			//note: we add this command to prevent multiple button clicks
+			//received by computer server before identifying that a patient transaction
+			//already exists in Cart List from Database
+			document.getElementById("addButtonId").disabled = true;
+*/
+			window.location.href = "<?php echo site_url('canvas/confirm/"+iButtonId+"');?>";
+	
+			//added by Mike, 20210424
+			//note: no need to add this due to computer enables button after reloading page
+//			document.getElementById("addButtonId").disabled = false;
+//			setTimeout(setButton("addButtonId",false),300000);
+		}	
+		
 	  </script>
   <body>
     <table class="imageTable">
@@ -607,33 +626,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 	?>
 	
+	<?php
+		$attackPunchButtonId=0;
+		$attackThrowButtonId=1;
+		$attackSpecialButtonId=2;
+		$defendGuardButtonId=3;
+		$defendReflectButtonId=4;
+		$chargeButtonId=5;
+	?>
+	
 	<table class="addPatientTable">
 	<tr>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-attackPunch" id="attackPunchButtonId">[PUNCH]</button>			
+			<button onclick="myPopupFunction(<?php echo $attackPunchButtonId;?>)" class="Button-attackPunch" id="attackPunchButtonId">[PUNCH]</button>			
 		</td>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-attackThrow" id="attackThrowButtonId">[THROW!]</button>			
+			<button onclick="myPopupFunction(<?php echo $attackThrowButtonId;?>)" class="Button-attackThrow" id="attackThrowButtonId">[THROW!]</button>			
 		</td>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-attackSpecial" id="attackSpecialButtonId">[SPECIAL]</button>			
-		</td>
-	</tr>
-	<tr>
-		<td>
-		</td>
-		<td>
-			<button onclick="myPopupFunction()" class="Button-defendGuard" id="defendGuardButtonId">[ GUARD ]</button>			
-		</td>
-		<td>
-			<button onclick="myPopupFunction()" class="Button-defendReflect" id="defendReflectButtonId">[REFLECT]</button>			
+			<button onclick="myPopupFunction(<?php echo $attackSpecialButtonId;?>)" class="Button-attackSpecial" id="attackSpecialButtonId">[SPECIAL]</button>			
 		</td>
 	</tr>
 	<tr>
 		<td>
 		</td>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-charge" id="chargeButtonId">[CHARGE]</button>			
+			<button onclick="myPopupFunction(<?php echo $defendGuardButtonId;?>)" class="Button-defendGuard" id="defendGuardButtonId">[ GUARD ]</button>			
+		</td>
+		<td>
+			<button onclick="myPopupFunction(<?php echo $defendReflectButtonId;?>)" class="Button-defendReflect" id="defendReflectButtonId">[REFLECT]</button>			
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<button onclick="myPopupFunction(<?php echo $chargeButtonId;?>)" class="Button-charge" id="chargeButtonId">[CHARGE]</button>			
 		</td>
 		<td>
 		</td>
