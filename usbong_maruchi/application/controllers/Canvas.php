@@ -23,6 +23,11 @@ class Canvas extends CI_Controller { //MY_Controller {
 	{
 		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 
+		//TO-DO: -update: this for >= PLAYER COUNT
+		$data['sInputAsButtonText0']="NONE";
+		$data['sInputAsButtonText1']="NONE";
+		$data['iHitPlayerId']="-1";
+
 /*
 		//from application/core/MY_Controller
 		$this::initStyle();
@@ -72,6 +77,26 @@ class Canvas extends CI_Controller { //MY_Controller {
 
 		$data['inputParam'] = $inputParam;
 		
+//		echo $sInputAsButtonText;
+		
+		//removed by Mike, 20220415
+//		$data['sInputAsButtonText'.$data['inputParam']]=$sInputAsButtonText;
+
+/* //removed by Mike, 20220415		
+//		echo "PLAYER1 INPUT: ".$data['inputParam']."<br/>";
+		echo "PLAYER1 INPUT: ".$sInputAsButtonText."<br/>";
+		echo "PLAYER2 INPUT: CHARGE<br/>";
+*/
+/*
+		$iCHARGE_ID=0;
+		$iGUARD_ID=1;
+*/		
+		$inputArray = array(
+				0 => $data['inputParam'],
+				1 => 1 //0 //CHARGE
+		);
+
+		//TO-DO: -update: this for MULTIPLAYER
 		$sInputAsButtonText="";
 		
 		switch($inputParam) {
@@ -94,21 +119,16 @@ class Canvas extends CI_Controller { //MY_Controller {
 				$sInputAsButtonText="REFLECT";
 				break;
 		}
-//		echo $sInputAsButtonText;
+				
+		//PLAYERS 1 & 2; TO-DO: verify: adding: >=2 PLAYERS
+		$data['sInputAsButtonText0']=$sInputAsButtonText;
+		$data['sInputAsButtonText1']="GUARD"; //$inputArray['1'];
 		
-//		echo "PLAYER1 INPUT: ".$data['inputParam']."<br/>";
-		echo "PLAYER1 INPUT: ".$sInputAsButtonText."<br/>";
-		echo "PLAYER2 INPUT: CHARGE<br/>";
-		
-		$inputArray = array(
-				0 => $data['inputParam'],
-				1 => 0 //CHARGE
-		);
-
 		
 		$data['iHitPlayerId']=$this->hitDecisionEngine($inputArray);
 //		echo $data['iHitPlayerId'];
-		
+
+/* //removed by Mike, 20220415		
 		switch($data['iHitPlayerId']) {
 			case 1: //PLAYER1
 				echo "HITS PLAYER 1!";
@@ -120,6 +140,7 @@ class Canvas extends CI_Controller { //MY_Controller {
 				echo "NO PLAYER HIT!";
 				break;
 		}
+*/		
 		
 /*
 		//from application/core/MY_Controller
@@ -200,8 +221,9 @@ class Canvas extends CI_Controller { //MY_Controller {
 		$iTHROW_ID=4;
 		$iREFECT_ID=5;
 		
+		//SET #1
 		if ($inputArray[0]==$iCHARGE_ID) {			
-			if (($inputArray[1]>=$iATTACK_START_ID) and ($inputArray[1]>=$iTHROW_ID)) {
+			if (($inputArray[1]>=$iATTACK_START_ID) and ($inputArray[1]<=$iSPECIAL_ID)) {
 				return 0+1; //hit iPlayerId=0
 			}
 			else {
@@ -214,8 +236,26 @@ echo "dito";
 echo $inputArray[0];
 */
 			if (($inputArray[0]>=$iATTACK_START_ID) and ($inputArray[0]<=$iSPECIAL_ID)) {
-				return 1+1; //hit iPlayerId=0
+				return 1+1; //hit iPlayerId=1
 			}
+			else {
+				return -1; //NO hit
+			}
+		}
+		
+		//SET #2
+		if ($inputArray[0]==$iGUARD_ID) {			
+			if ($inputArray[1]==$iTHROW_ID) {
+				return 0+1; //hit iPlayerId=0
+			}	
+			else {
+				return -1; //NO hit
+			}
+		}
+		if ($inputArray[1]==$iGUARD_ID) {			
+			if ($inputArray[0]==$iTHROW_ID) {
+				return 1+1; //hit iPlayerId=1
+			}	
 			else {
 				return -1; //NO hit
 			}
