@@ -627,12 +627,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	?>
 	
 	<?php
-		$attackPunchButtonId=0;
-		$attackThrowButtonId=1;
-		$attackSpecialButtonId=2;
-		$defendGuardButtonId=3;
-		$defendReflectButtonId=4;
-		$chargeButtonId=5;
+		$chargeButtonId=0;
+		$defendGuardButtonId=1;
+		$attackPunchButtonId=2;
+		$attackSpecialButtonId=3;
+		$attackThrowButtonId=4;
+		$defendReflectButtonId=5;
 	?>
 	
 	<table class="addPatientTable">
