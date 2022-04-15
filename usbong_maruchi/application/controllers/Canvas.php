@@ -57,15 +57,22 @@ class Canvas extends CI_Controller { //MY_Controller {
 */		
 	}
 	
-	public function confirm()
+	//edited by Mike, 20220415
+//	public function confirm()
+	public function confirm($inputParam)
 	{
-		$data['inputParam'] = $_POST["inputParam"]; //added by Mike, 20170616
+		//removed by Mike, 20220415
+//		$data['inputParam'] = $_POST["inputParam"]; //added by Mike, 20170616
+
 /*
 		if (!isset($_POST["nameParam"])) { //$data['nameParam'])) {
 			redirect('browse');
 		}
 */
 
+		$data['inputParam'] = $inputParam;
+		echo $data['inputParam'];
+		
 /*
 		//from application/core/MY_Controller
 		$this::initStyle();
