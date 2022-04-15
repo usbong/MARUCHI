@@ -21,8 +21,19 @@ class Canvas extends CI_Controller { //MY_Controller {
 //	public function search()//$param)
 	public function index()
 	{
-		$data['param'] = $this->input->get('param'); //added by Mike, 20170616
+		//removed by Mike, 20220416
+		//$data['param'] = $this->input->get('param'); //added by Mike, 20170616
 
+		//added by Mike, 20220416
+/*
+		if(!isset($_SESSION)) 
+		{ 
+			session_start();
+		}
+*/
+		session_destroy();
+		session_start();
+		
 		//TO-DO: -update: this for >= PLAYER COUNT
 		$data['sInputAsButtonText0']="NONE";
 		$data['sInputAsButtonText1']="NONE";
@@ -77,6 +88,14 @@ class Canvas extends CI_Controller { //MY_Controller {
 
 		$data['inputParam'] = $inputParam;
 		
+		//added by Mike, 20220416
+		$iMyCurrentChargeCountP1 = $this->session->userdata('myCurrentChargeCountP1');
+		
+		if (!isset($iMyCurrentChargeCountP1)) {
+			$iMyCurrentChargeCountP1=0;
+		}
+		
+		
 //		echo $sInputAsButtonText;
 		
 		//removed by Mike, 20220415
@@ -102,6 +121,7 @@ class Canvas extends CI_Controller { //MY_Controller {
 		switch($inputParam) {
 			case 0:
 				$sInputAsButtonText="CHARGE";
+				$iMyCurrentChargeCountP1 += 1;
 				break;
 			case 1:
 				$sInputAsButtonText="GUARD";
@@ -123,10 +143,18 @@ class Canvas extends CI_Controller { //MY_Controller {
 		//PLAYERS 1 & 2; TO-DO: verify: adding: >=2 PLAYERS
 		$data['sInputAsButtonText0']=$sInputAsButtonText;
 		$data['sInputAsButtonText1']="GUARD"; //$inputArray['1'];
-		
-		
+				
 		$data['iHitPlayerId']=$this->hitDecisionEngine($inputArray);
 //		echo $data['iHitPlayerId'];
+		
+		//TO-DO: -add: reset;
+		//session_destroy();
+		//session_start();
+		
+		$_SESSION['myCurrentChargeCountP1'] = $iMyCurrentChargeCountP1;
+		//echo $_SESSION['myCurrentChargeCountP1'];
+		
+		$data['myCurrentChargeCountP1']=$iMyCurrentChargeCountP1;
 
 /* //removed by Mike, 20220415		
 		switch($data['iHitPlayerId']) {
@@ -261,6 +289,25 @@ echo $inputArray[0];
 			}
 		}
 
+/* //TO-DO: -update: this
+		//SET #3
+		if ($inputArray[0]==$iCHARGE_ID) {			
+			if (($inputArray[1]>=$iATTACK_START_ID) and ($inputArray[1]<=$iSPECIAL_ID)) {
+				return 0+1; //hit iPlayerId=0
+			}
+			else {
+				return -1; //NO hit
+			}
+		}
+		if ($inputArray[1]==$iCHARGE_ID) {			
+			if (($inputArray[0]>=$iATTACK_START_ID) and ($inputArray[0]<=$iSPECIAL_ID)) {
+				return 1+1; //hit iPlayerId=1
+			}
+			else {
+				return -1; //NO hit
+			}
+		}
+*/		
 
 /*
 //TO-DO: -add: auto-verify: CHARGE COUNT in views/canvas.php		
