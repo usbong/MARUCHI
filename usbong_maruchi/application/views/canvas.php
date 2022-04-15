@@ -153,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 						.Button-attackPunch {
 							padding: 12px;
-							background-color: #ffe400;
+							background-color: #ff0000;
 							color: #222222;
 							font-size: 16px;
 							font-weight: bold;
@@ -166,36 +166,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						}
 
 						.Button-attackPunch:hover {
-							background-color: #d4be00;
+							background-color: #b80000;
 						}
 
 						.Button-attackPunch:focus {
-							background-color: #d4be00;
+							background-color: #b80000;
 						}
 						
 						.Button-attackThrow {
-							padding: 12px;
-							background-color: #ffe400;
-							color: #222222;
-							font-size: 16px;
-							font-weight: bold;
-
-							border: 0px solid;		
-							border-radius: 4px;
-
-							float: left;
-							margin-left: 4px;
-						}
-
-						.Button-attackThrow:hover {
-							background-color: #d4be00;
-						}
-
-						.Button-attackThrow:focus {
-							background-color: #d4be00;
-						}
-									
-						.Button-attackSpecial {
 							padding: 12px;
 							background-color: #ffa100;
 							color: #222222;
@@ -209,12 +187,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							margin-left: 4px;
 						}
 
-						.Button-attackSpecial:hover {
+						.Button-attackThrow:hover {
 							background-color: #ff7000;
 						}
 
-						.Button-attackSpecial:focus {
+						.Button-attackThrow:focus {
 							background-color: #ff7000;
+						}
+									
+						.Button-attackSpecial {
+							padding: 12px;
+							background-color: #005eff;
+							color: #222222;
+							font-size: 16px;
+							font-weight: bold;
+
+							border: 0px solid;		
+							border-radius: 4px;
+
+							float: left;
+							margin-left: 4px;
+						}
+
+						.Button-attackSpecial:hover {
+							background-color: #0a00da;
+						}
+
+						.Button-attackSpecial:focus {
+							background-color: #0a00da;
 						}
 
 						.Button-defendGuard {
@@ -610,30 +610,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<table class="addPatientTable">
 	<tr>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-attackPunch" id="attackPunchButtonId">PUNCH</button>			
+			<button onclick="myPopupFunction()" class="Button-attackPunch" id="attackPunchButtonId">[PUNCH]</button>			
 		</td>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-attackThrow" id="attackThrowButtonId">THROW</button>			
+			<button onclick="myPopupFunction()" class="Button-attackThrow" id="attackThrowButtonId">[THROW!]</button>			
 		</td>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-attackSpecial" id="attackSpecialButtonId">SPECIAL</button>			
-		</td>
-	</tr>
-	<tr>
-		<td>
-		</td>
-		<td>
-			<button onclick="myPopupFunction()" class="Button-defendGuard" id="defendGuardButtonId">GUARD</button>			
-		</td>
-		<td>
-			<button onclick="myPopupFunction()" class="Button-defendReflect" id="defendReflectButtonId">REFLECT</button>			
+			<button onclick="myPopupFunction()" class="Button-attackSpecial" id="attackSpecialButtonId">[SPECIAL]</button>			
 		</td>
 	</tr>
 	<tr>
 		<td>
 		</td>
 		<td>
-			<button onclick="myPopupFunction()" class="Button-charge" id="chargeButtonId">CHARGE</button>			
+			<button onclick="myPopupFunction()" class="Button-defendGuard" id="defendGuardButtonId">[ GUARD ]</button>			
+		</td>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-defendReflect" id="defendReflectButtonId">[REFLECT]</button>			
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<button onclick="myPopupFunction()" class="Button-charge" id="chargeButtonId">[CHARGE]</button>			
 		</td>
 		<td>
 		</td>
