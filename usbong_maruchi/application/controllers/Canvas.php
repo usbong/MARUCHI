@@ -71,7 +71,55 @@ class Canvas extends CI_Controller { //MY_Controller {
 */
 
 		$data['inputParam'] = $inputParam;
-		echo $data['inputParam'];
+		
+		$sInputAsButtonText="";
+		
+		switch($inputParam) {
+			case 0:
+				$sInputAsButtonText="CHARGE";
+				break;
+			case 1:
+				$sInputAsButtonText="GUARD";
+				break;
+			case 2:
+				$sInputAsButtonText="PUNCH";
+				break;
+			case 3:
+				$sInputAsButtonText="SPECIAL";
+				break;
+			case 4:
+				$sInputAsButtonText="THROW";
+				break;
+			case 5:
+				$sInputAsButtonText="REFLECT";
+				break;
+		}
+//		echo $sInputAsButtonText;
+		
+//		echo "PLAYER1 INPUT: ".$data['inputParam']."<br/>";
+		echo "PLAYER1 INPUT: ".$sInputAsButtonText."<br/>";
+		echo "PLAYER2 INPUT: CHARGE<br/>";
+		
+		$inputArray = array(
+				0 => $data['inputParam'],
+				1 => 0 //CHARGE
+		);
+
+		
+		$data['iHitPlayerId']=$this->hitDecisionEngine($inputArray);
+//		echo $data['iHitPlayerId'];
+		
+		switch($data['iHitPlayerId']) {
+			case 1: //PLAYER1
+				echo "HITS PLAYER 1!";
+				break;
+			case 2: //PLAYER2
+				echo "HITS PLAYER 2!";
+				break;
+			case -1: //NO HIT
+				echo "NO PLAYER HIT!";
+				break;
+		}
 		
 /*
 		//from application/core/MY_Controller
@@ -136,6 +184,66 @@ class Canvas extends CI_Controller { //MY_Controller {
 		//--------------------------------------------
 		$this->load->view('templates/footer');	
 */		
+	}
+	
+	//added by Mike, 20220415
+	public function hitDecisionEngine($inputArray)
+	{
+		//note: iPlayer1Id=0, iPlayer2Id=1...
+		$iCHARGE_ID=0;
+		$iGUARD_ID=1;
+
+		$iATTACK_START_ID=2;
+		$iPUNCH_ID=2;
+		$iSPECIAL_ID=3;
+
+		$iTHROW_ID=4;
+		$iREFECT_ID=5;
+		
+		if ($inputArray[0]==$iCHARGE_ID) {			
+			if (($inputArray[1]>=$iATTACK_START_ID) and ($inputArray[1]>=$iTHROW_ID)) {
+				return 0+1; //hit iPlayerId=0
+			}
+			else {
+				return -1; //NO hit
+			}
+		}
+		if ($inputArray[1]==$iCHARGE_ID) {			
+/*
+echo "dito";
+echo $inputArray[0];
+*/
+			if (($inputArray[0]>=$iATTACK_START_ID) and ($inputArray[0]<=$iSPECIAL_ID)) {
+				return 1+1; //hit iPlayerId=0
+			}
+			else {
+				return -1; //NO hit
+			}
+		}
+
+
+/*
+//TO-DO: -add: auto-verify: CHARGE COUNT in views/canvas.php		
+BLOCK @CHARGE X0;
+CHARGE @CHARGE X0;
+
+FIREBALL @CHARGE x1
+REFLECT @CHARGE x1
+THROW @CHARGE x1
+PUNCH @CHARGE x1
+
+where:
+BLOCK < THROW
+THROW < FIREBALL
+THROW < PUNCH
+
+CHARGE < ATTACK (except THROW, REFLECT)
+
+PUNCH < FIREBALL
+FIREBALL < REFLECT
+REFLECT < PUNCH
+*/
+		
 	}
 	
 	//added by Mike, 20200817
