@@ -10,7 +10,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20200306
-' @date updated: 20220415; from 20200527
+' @date updated: 20220416; from 20220415
 '
 ' Note: re-used computer instructions from Usbong Knowledge Management System (KMS)
 -->
@@ -432,7 +432,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 		//added by Mike, 20220415				
-		function myPopupFunction(iButtonId) {	
+		function myPopupFunction(iButtonId) {			
+			//TO-DO: -update: this
+			//+iCount
+			var iMyCurrentChargeCount = document.getElementById("myCurrentChargeCountId").value; //innerText
+			
+			//do the following only if value is a Number, i.e. not NaN
+			if (!isNaN(iMyCurrentChargeCount)) {		
+				alert(iMyCurrentChargeCount);
+				
+				//TO-DO: -add: auto-verify IF charge count sufficient to execute ACTION, e.g. PUNCH
+			}
+		
 /* //removed by Mike, 20210902
 			//added by Mike, 20210424
 			//note: we add this command to prevent multiple button clicks
@@ -466,7 +477,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </tr>
 	</table>
 	<br/>
+		
+	<input type="hidden" id="myCurrentChargeCountId" 
+		value="<?php //TO-DO: -update: this to have >= 2 Players
+				if (isset($myCurrentChargeCountP1)) {		
+					echo $myCurrentChargeCountP1; //1
+				}
+				else {
+					echo 0;							
+				}?>" 
+	required>
+	
 	<?php	
+		//added by Mike, 20220416
+		if (!isset($myCurrentChargeCountP1)) {
+			$myCurrentChargeCountP1=0;
+		}
+		
+		echo "PLAYER1 CHARGE COUNT: ".$myCurrentChargeCountP1."<br/>";
+		echo "PLAYER2 CHARGE COUNT: "."0"."<br/>"; //$myCurrentChargeCountP2
+		
+		echo "<br/>";
+		
 //		echo "PLAYER1 INPUT: ".$data['inputParam']."<br/>";
 		echo "PLAYER1 INPUT: ".$sInputAsButtonText0."<br/>";
 		//edited by Mike, 20220415
@@ -613,7 +645,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 	?>
 	
-	<?php
+	<?php	
 		$chargeButtonId=0;
 		$defendGuardButtonId=1;
 		$attackPunchButtonId=2;
