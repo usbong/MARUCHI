@@ -439,9 +439,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			//do the following only if value is a Number, i.e. not NaN
 			if (!isNaN(iMyCurrentChargeCount)) {		
-				alert(iMyCurrentChargeCount);
+				//alert(iMyCurrentChargeCount);
 				
-				//TO-DO: -add: auto-verify IF charge count sufficient to execute ACTION, e.g. PUNCH
+				//auto-verify IF charge count sufficient to execute ACTION, e.g. PUNCH
+				//added by Mike, 20220416
+				//note: @present, max action COST = 1
+				
+				if (iButtonId!=0) { //CHARGE Button
+					if (iMyCurrentChargeCount<=0) {
+						alert("INSUFFICIENT CHARGE!");
+
+						//document.getElementById("iButtonId2").focus=false; 				
+						window.location = window.location;
+						
+						return;
+
+					}
+				}				
 			}
 		
 /* //removed by Mike, 20210902
@@ -480,8 +494,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 	<input type="hidden" id="myCurrentChargeCountId" 
 		value="<?php //TO-DO: -update: this to have >= 2 Players
-				if (isset($myCurrentChargeCountP1)) {		
-					echo $myCurrentChargeCountP1; //1
+				if (isset($iMyCurrentChargeCountP1)) {		
+					echo $iMyCurrentChargeCountP1; //1
 				}
 				else {
 					echo 0;							
@@ -490,11 +504,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	<?php	
 		//added by Mike, 20220416
-		if (!isset($myCurrentChargeCountP1)) {
-			$myCurrentChargeCountP1=0;
+		if (!isset($iMyCurrentChargeCountP1)) {
+			$iMyCurrentChargeCountP1=0;
 		}
 		
-		echo "PLAYER1 CHARGE COUNT: ".$myCurrentChargeCountP1."<br/>";
+		echo "PLAYER1 CHARGE COUNT: ".$iMyCurrentChargeCountP1."<br/>";
 		echo "PLAYER2 CHARGE COUNT: "."0"."<br/>"; //$myCurrentChargeCountP2
 		
 		echo "<br/>";
@@ -657,7 +671,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<table class="addPatientTable">
 	<tr>
 		<td>
-			<button onclick="myPopupFunction(<?php echo $attackPunchButtonId;?>)" class="Button-attackPunch" id="attackPunchButtonId">[PUNCH]</button>			
+			<!-- TO-DO: -update: this -->
+			<button onclick="myPopupFunction(<?php echo $attackPunchButtonId;?>)" class="Button-attackPunch" id="iButtonId<?php echo $attackPunchButtonId; ?>">[PUNCH]</button>			
 		</td>
 		<td>
 			<button onclick="myPopupFunction(<?php echo $attackThrowButtonId;?>)" class="Button-attackThrow" id="attackThrowButtonId">[THROW!]</button>			
