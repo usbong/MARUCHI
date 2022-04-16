@@ -75,7 +75,7 @@ class Canvas extends CI_Controller { //MY_Controller {
 	
 	//edited by Mike, 20220415
 //	public function confirm()
-	public function confirm($inputParam)
+	public function confirm($iButtonId)
 	{
 		//removed by Mike, 20220415
 //		$data['inputParam'] = $_POST["inputParam"]; //added by Mike, 20170616
@@ -86,7 +86,7 @@ class Canvas extends CI_Controller { //MY_Controller {
 		}
 */
 
-		$data['inputParam'] = $inputParam;
+		$data['iButtonId'] = $iButtonId;
 		
 		//added by Mike, 20220416
 		$iMyCurrentChargeCountP1 = $this->session->userdata('myCurrentChargeCountP1');
@@ -111,14 +111,14 @@ class Canvas extends CI_Controller { //MY_Controller {
 		$iGUARD_ID=1;
 */		
 		$inputArray = array(
-				0 => $data['inputParam'],
+				0 => $data['iButtonId'],
 				1 => 1 //0 //CHARGE
 		);
 
 		//TO-DO: -update: this for MULTIPLAYER
 		$sInputAsButtonText="";
 		
-		switch($inputParam) {
+		switch($iButtonId) {
 			case 0:
 				$sInputAsButtonText="CHARGE";
 				$iMyCurrentChargeCountP1 += 1;
@@ -152,9 +152,9 @@ class Canvas extends CI_Controller { //MY_Controller {
 		//session_start();
 		
 		$_SESSION['myCurrentChargeCountP1'] = $iMyCurrentChargeCountP1;
-		//echo $_SESSION['myCurrentChargeCountP1'];
+//		echo $_SESSION['myCurrentChargeCountP1'];
 		
-		$data['myCurrentChargeCountP1']=$iMyCurrentChargeCountP1;
+		$data['iMyCurrentChargeCountP1']=$iMyCurrentChargeCountP1;
 
 /* //removed by Mike, 20220415		
 		switch($data['iHitPlayerId']) {
