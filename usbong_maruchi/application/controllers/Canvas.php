@@ -128,16 +128,25 @@ class Canvas extends CI_Controller { //MY_Controller {
 				break;
 			case 2:
 				$sInputAsButtonText="PUNCH";
+				$iMyCurrentChargeCountP1 -= 1;
 				break;
 			case 3:
 				$sInputAsButtonText="SPECIAL";
+				$iMyCurrentChargeCountP1 -= 1;
 				break;
 			case 4:
 				$sInputAsButtonText="THROW";
+				$iMyCurrentChargeCountP1 -= 1;
 				break;
 			case 5:
 				$sInputAsButtonText="REFLECT";
+				$iMyCurrentChargeCountP1 -= 1;
 				break;
+		}
+		
+		//added by Mike, 20220416
+		if ($iMyCurrentChargeCountP1<0) {
+			$iMyCurrentChargeCountP1=0;
 		}
 				
 		//PLAYERS 1 & 2; TO-DO: verify: adding: >=2 PLAYERS
