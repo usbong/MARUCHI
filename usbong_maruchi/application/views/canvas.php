@@ -445,15 +445,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				//added by Mike, 20220416
 				//note: @present, max action COST = 1
 				
-				if (iButtonId!=0) { //CHARGE Button
+				if ( (iButtonId!=0) && (iButtonId!=1)){ //CHARGE Button OR GUARD Button
 					if (iMyCurrentChargeCount<=0) {
 						alert("INSUFFICIENT CHARGE!");
 
 						//document.getElementById("iButtonId2").focus=false; 				
+						
+						//reference:					
+						//https://stackoverflow.com/questions/15897434/javascript-refresh-parent-page-without-entirely-reloading
+						//answer by: decden, 20130419T0858
+						//edited by: CommunityBot, 20170523T1159
 						window.location = window.location;
 						
 						return;
-
 					}
 				}				
 			}
@@ -513,12 +517,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		echo "<br/>";
 		
+/* //edited by Mike, 20220416		
 //		echo "PLAYER1 INPUT: ".$data['inputParam']."<br/>";
 		echo "PLAYER1 INPUT: ".$sInputAsButtonText0."<br/>";
 		//edited by Mike, 20220415
 //		echo "PLAYER2 INPUT: CHARGE<br/>";	
 		echo "PLAYER2 INPUT: ".$sInputAsButtonText1."<br/>";
-
+*/
+		echo "PLAYER1 ACTION: ".$sInputAsButtonText0."<br/>";
+		echo "PLAYER2 ACTION: ".$sInputAsButtonText1."<br/>";
+		
+		echo "<br/>";
+		
 		switch($iHitPlayerId) {
 			case 1: //PLAYER1
 				echo "HITS PLAYER 1!";
