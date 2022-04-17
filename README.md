@@ -3,13 +3,29 @@
 Noong panahon sa Mababang Paaralan, GAME na nilaro kasama ng mga kaklase
 
 ## Example (version: 2022-04-17)
-http://store.usbong.ph/canvas/
+http://store.usbong.ph/canvas/<br/>
+<br/>
+--> <b>Start:</b> 2022-04-15<br/>
+--> <b>End:</b> 2022-04-17<br/>
+--> <b>Elapsed Time:</b> 3days<br/>
+<br/>
+--> <b>Note: Web Development</b><br/>
+--> PHP : SERVER COMPUTER<br/>
+--> javascript : CLIENT COMPUTER<br/>
+<br/>
+--> where: IF PHP, increase in TIME DELAY due to:<br/>
+--> CLIENT shall NEED to communicate with SERVER <br/>
+<br/>
+--> where: IF javascript, decrease in TIME DELAY due to:<br/>
+--> CLIENT quickly executes WITHOUT NEED to communicate with SERVER<br/>
 
-# 1. PALIWANAG・GABAY (DRAFT)
+# 1. PALIWANAG・GABAY
+## --> version with COMPUTER (DRAFT)
+
 2022-04-15T09:06~09:22<br/>
 ELAPSED TIME: 16MINS<br/>
 <br/>
-TURN BASED; COMPUTER WEB BROWSER OK; MULTIPLAYER<br/>
+TURN-BASED; COMPUTER WEB BROWSER OK; MULTIPLAYER<br/>
 <br/>
 BLOCK @CHARGE X0;<br/>
 CHARGE @CHARGE X0;<br/>
