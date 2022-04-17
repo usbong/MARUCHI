@@ -2,6 +2,9 @@
 小学校の頃に、クラスメートたちと遊んでたゲーム<br/>
 Noong panahon sa Mababang Paaralan, GAME na nilaro kasama ng mga kaklase
 
+## Example (version: 2022-04-17)
+http://store.usbong.ph/canvas/
+
 # 1. PALIWANAG・GABAY (DRAFT)
 2022-04-15T09:06~09:22<br/>
 ELAPSED TIME: 16MINS<br/>
