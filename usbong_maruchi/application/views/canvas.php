@@ -10,7 +10,7 @@
 ' @company: USBONG
 ' @author: SYSON, MICHAEL B.
 ' @date created: 20200306
-' @date updated: 20220416; from 20220415
+' @date updated: 20220417; from 20220416
 '
 ' Note: re-used computer instructions from Usbong Knowledge Management System (KMS)
 -->
@@ -447,16 +447,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				if ( (iButtonId!=0) && (iButtonId!=1)){ //CHARGE Button OR GUARD Button
 					if (iMyCurrentChargeCount<=0) {
+/* //edited by Mike, 20220417						
 						alert("INSUFFICIENT CHARGE!");
 
-						//document.getElementById("iButtonId2").focus=false; 				
+//						document.getElementById("iButtonId2").focus=false; 				
 						
 						//reference:					
 						//https://stackoverflow.com/questions/15897434/javascript-refresh-parent-page-without-entirely-reloading
 						//answer by: decden, 20130419T0858
 						//edited by: CommunityBot, 20170523T1159
 						window.location = window.location;
+*/
+						//TO-DO: -add: IF player count >= 2
+						document.getElementById("spanMyCurrentChargeCountP1Id").style="color:red"; 	
 						
+						//TO-DO: -add: rest of button ID's
+						document.getElementById("iButtonId2").blur(); 				
+
 						return;
 					}
 				}				
@@ -512,7 +519,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$iMyCurrentChargeCountP1=0;
 		}
 		
+/* //edited by Mike, 20220417		
 		echo "PLAYER1 CHARGE COUNT: ".$iMyCurrentChargeCountP1."<br/>";
+		echo "PLAYER2 CHARGE COUNT: "."0"."<br/>"; //$myCurrentChargeCountP2
+*/
+		echo "PLAYER1 CHARGE COUNT: <span id='spanMyCurrentChargeCountP1Id'>".$iMyCurrentChargeCountP1."</span><br/>";
 		echo "PLAYER2 CHARGE COUNT: "."0"."<br/>"; //$myCurrentChargeCountP2
 		
 		echo "<br/>";
