@@ -462,8 +462,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						document.getElementById("spanMyCurrentChargeCountP1Id").style="color:red"; 	
 						
 						//TO-DO: -add: rest of button ID's
-						document.getElementById("iButtonId2").blur(); 				
-
+						//edited by Mike, 20220417
+//						document.getElementById("iButtonId2").blur(); 				
+						//document.getElementById("iButtonId"+2).blur(); 	
+						document.getElementById("iButtonId"+iButtonId).blur(); 	
+ 										
 						return;
 					}
 				}				
@@ -524,7 +527,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo "PLAYER2 CHARGE COUNT: "."0"."<br/>"; //$myCurrentChargeCountP2
 */
 		echo "PLAYER1 CHARGE COUNT: <span id='spanMyCurrentChargeCountP1Id'>".$iMyCurrentChargeCountP1."</span><br/>";
-		echo "PLAYER2 CHARGE COUNT: "."0"."<br/>"; //$myCurrentChargeCountP2
+		echo "PLAYER2 CHARGE COUNT: <span id='spanMyCurrentChargeCountP2Id'>"."0"."</span><br/>"; //$myCurrentChargeCountP2
 		
 		echo "<br/>";
 		
@@ -551,6 +554,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				echo "NO PLAYER HIT!";
 				break;
 		}
+				
 	?>
 	<br/>
 
@@ -693,30 +697,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<tr>
 		<td>
 			<!-- TO-DO: -update: this -->
-			<button onclick="myPopupFunction(<?php echo $attackPunchButtonId;?>)" class="Button-attackPunch" id="iButtonId<?php echo $attackPunchButtonId; ?>">[PUNCH]</button>			
+			<button onclick="myPopupFunction(<?php echo $attackPunchButtonId;?>)" class="Button-attackPunch" id="iButtonId<?php echo $attackPunchButtonId;?>">[PUNCH]</button>			
 		</td>
 		<td>
-			<button onclick="myPopupFunction(<?php echo $attackThrowButtonId;?>)" class="Button-attackThrow" id="attackThrowButtonId">[THROW!]</button>			
+			<button onclick="myPopupFunction(<?php echo $attackThrowButtonId;?>)" class="Button-attackThrow" id="iButtonId<?php echo $attackThrowButtonId;?>">[THROW!]</button>			
 		</td>
 		<td>
-			<button onclick="myPopupFunction(<?php echo $attackSpecialButtonId;?>)" class="Button-attackSpecial" id="attackSpecialButtonId">[SPECIAL]</button>			
-		</td>
-	</tr>
-	<tr>
-		<td>
-		</td>
-		<td>
-			<button onclick="myPopupFunction(<?php echo $defendGuardButtonId;?>)" class="Button-defendGuard" id="defendGuardButtonId">[ GUARD ]</button>			
-		</td>
-		<td>
-			<button onclick="myPopupFunction(<?php echo $defendReflectButtonId;?>)" class="Button-defendReflect" id="defendReflectButtonId">[REFLECT]</button>			
+			<button onclick="myPopupFunction(<?php echo $attackSpecialButtonId;?>)" class="Button-attackSpecial" id="iButtonId<?php echo $attackSpecialButtonId;?>">[SPECIAL]</button>			
 		</td>
 	</tr>
 	<tr>
 		<td>
 		</td>
 		<td>
-			<button onclick="myPopupFunction(<?php echo $chargeButtonId;?>)" class="Button-charge" id="chargeButtonId">[CHARGE]</button>			
+			<button onclick="myPopupFunction(<?php echo $defendGuardButtonId;?>)" class="Button-defendGuard" id="iButtonId<?php echo $defendGuardButtonId;?>">[ GUARD ]</button>			
+		</td>
+		<td>
+			<button onclick="myPopupFunction(<?php echo $defendReflectButtonId;?>)" class="Button-defendReflect" id="iButtonId<?php echo $defendReflectButtonId;?>">[REFLECT]</button>			
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<button onclick="myPopupFunction(<?php echo $chargeButtonId;?>)" class="Button-charge" id="iButtonId<?php echo $chargeButtonId;?>">[CHARGE]</button>			
 		</td>
 		<td>
 		</td>
