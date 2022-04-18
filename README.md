@@ -5,6 +5,9 @@ Noong panahon sa Mababang Paaralan, GAME na nilaro kasama ng mga kaklase
 ## Example (version: 2022-04-17)
 http://store.usbong.ph/canvas/<br/>
 <br/>
+<img src="https://github.com/usbong/MARUCHI/blob/main/screenshots/usbongMaruchiExampleScreenshotV20220418T1719.jpg" width="80%">
+<br/>
+<br/>
 --> <b>Start:</b> 2022-04-15<br/>
 --> <b>End:</b> 2022-04-17<br/>
 --> <b>Elapsed Time:</b> 3days<br/>
