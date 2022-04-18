@@ -7,10 +7,16 @@ http://store.usbong.ph/canvas/<br/>
 <br/>
 <img src="https://github.com/usbong/MARUCHI/blob/main/screenshots/usbongMaruchiExampleScreenshotV20220418T1719.jpg" width="80%">
 <br/>
+SCREENSHOT from Linux Machine<br/>
 <br/>
 --> <b>Start:</b> 2022-04-15<br/>
 --> <b>End:</b> 2022-04-17<br/>
 --> <b>Elapsed Time:</b> 3days<br/>
+<br/>
+<br/>
+<img src="https://github.com/usbong/MARUCHI/blob/main/screenshots/usbongMaruchiExampleScreenshotIPadAtClinicInPaliparan%2CMarikinaCity20220418T1727.png" width="80%">
+<br/>
+SCREENSHOT from iPAD Tablet PC Machine<br/>
 <br/>
 --> <b>Note: Web Development</b><br/>
 --> PHP : SERVER COMPUTER<br/>
